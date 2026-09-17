@@ -16,7 +16,7 @@
 <section id="giveaway" class="screen hidden"><div id="gcontent"></div></section>
 </div><div id="toast" class="toast"></div>
 <script>
-const tg=window.Telegram?.WebApp, API_BASE="__WORKER_URL__".replace(/\/$/,"");let user=null,current=null,winners=1,photoId=null,screen="home";
+const tg=window.Telegram?.WebApp, API_BASE="https://giveawayserbot.z9hie.workers.dev/".replace(/\/$/,"");let user=null,current=null,winners=1,photoId=null,screen="home";
 if(tg){tg.ready();tg.expand()}
 const H=()=>({'X-Telegram-Init-Data':tg?.initData||''});
 async function api(path,opt={}){const r=await fetch(API_BASE+path,{...opt,headers:{...H(),...(opt.headers||{})}});let d;try{d=await r.json()}catch{throw Error('Некорректный ответ сервера')}if(!r.ok||d.error)throw Error(d.error||'Ошибка');return d}
